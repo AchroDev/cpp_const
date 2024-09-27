@@ -8,7 +8,7 @@ class Entity
 {
 private:
     int m_X, m_Y;
-    int var; // In the case var is currently immutable
+    mutable int var; // Now 'var' is mutable and has declared that its data can be changed
 
 public:
     // You can also use a const in methods to signify that the method will not change anything.
@@ -16,7 +16,7 @@ public:
     // using 'var' as an example.
     int GetX() const
     {
-        var = 1; // var cannot be modified
+        var = 1; // var can now be modified as the method knows it is mutable
         return m_X;
     }
 
