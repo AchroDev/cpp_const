@@ -11,7 +11,8 @@ int main()
 
     // const int *a = new int; // Declaring a new integer variable on the heap, now as a const that the data cannot be mutated
     // int const *a = new int; // The same thing as above, pay attention to where the pointer is
-    int *const a = new int; // Declaring a new integer variable on the heap, now as a const that the pointer cannot be mutated
+    // int *const a = new int;       // Declaring a new integer variable on the heap, now as a const that the pointer cannot be mutated
+    const int *const a = new int; // Declaring a new integer variable on the heap, now as a const that the pointer nor data cannot be mutated
 
     *a = 2;              // Since a is now a const int *, you can no longer mutate the data
     a = (int *)&MAX_AGE; // Although you can't change the data of the pointer, you can still change the pointer itself
