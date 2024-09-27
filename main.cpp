@@ -12,7 +12,7 @@ private:
 public:
     // You can also use a const in methods to signify that the method will not change anything
     //
-    int GetX() const
+    int GetX()
     {
         m_X = 2;
         return m_X;
@@ -30,7 +30,7 @@ public:
 void PrintEntity(const Entity &e)
 {
 
-    std::cout << e.GetX() << std::endl; // We can call e on GetX() right now because the GetX() method is a const
+    std::cout << e.GetX() << std::endl; // Now we can't call 'e' on GetX() because it is no longer a const and doesn't guarantee no mutation to the
 }
 
 int main()
