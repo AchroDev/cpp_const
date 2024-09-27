@@ -25,11 +25,12 @@ public:
     }
 };
 
-// We want to make the parameters a consts, copying objects can be really slow
-void PrintEntity(const Entity *e)
+// We want to make the parameters a consts reference as copying objects can be really slow
+// calling const here also means that whatever we do has to guarantee not to mutate the data
+void PrintEntity(const Entity &e)
 {
-    e = nullptr; // This is ok now with the data as a pointer
-    std::cout << e.GetX() << std::endl;
+
+    std::cout << e.GetX() << std::endl; // We can call e on GetX() right now because the GetX() method is a const
 }
 
 int main()
