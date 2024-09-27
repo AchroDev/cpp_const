@@ -5,8 +5,8 @@
 
 int main()
 {
-    int a = 5; // Without signifying that the data is a constant variable
-    a = 2;     // it allows you to change that data later on
+    const int a = 5; // Switching to a const enforces that this value will be constant and not change
+    a = 2;           // you'll notice now that this data is immutable
 
     std::cin.get();
 }
