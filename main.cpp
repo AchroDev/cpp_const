@@ -8,13 +8,15 @@ class Entity
 {
 private:
     int m_X, m_Y;
+    int var; // In the case var is currently immutable
 
 public:
-    // You can also use a const in methods to signify that the method will not change anything
-    //
-    int GetX()
+    // You can also use a const in methods to signify that the method will not change anything.
+    // In some cases you want to keep the method as a const but for some reason you need to change something,
+    // using 'var' as an example.
+    int GetX() const
     {
-        m_X = 2;
+        var = 1; // var cannot be modified
         return m_X;
     }
 
@@ -30,7 +32,7 @@ public:
 void PrintEntity(const Entity &e)
 {
 
-    std::cout << e.GetX() << std::endl; // Now we can't call 'e' on GetX() because it is no longer a const and doesn't guarantee no mutation to the
+    std::cout << e.GetX() << std::endl;
 }
 
 int main()
