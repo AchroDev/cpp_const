@@ -4,8 +4,39 @@
 // The const keyword is sort of a fake keyword, mostly because it doesn't do much to change the code
 // It helps with visibility and helps "enforce" rules, i.e. that the data is constant.
 
+class Entity
+{
+private:
+    int m_X, m_Y;
+
+public:
+    // You can also use a const in methods to signify that the method will not change anything
+    //
+    int GetX() const
+    {
+        m_X = 2;
+        return m_X;
+    }
+
+    // With a setter you are going to have to write to 'x' and dont' want to use a const.
+    void setX(int x)
+    {
+        m_X = x;
+    }
+};
+
+// We want to make the parameters a consts, copying objects can be really slow
+void PrintEntity(const Entity &e)
+{
+    e = nullptr;
+    std::cout << e.GetX() << std::endl;
+}
+
 int main()
 {
+
+    Entity e;
+
     const int MAX_AGE = 90;
     const std::string NAME = "AchroDev"; // A const isn't necessarily a "variable", just think of it as a value that will not change
 
