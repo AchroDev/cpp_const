@@ -6,9 +6,15 @@
 
 int main()
 {
-    const int a = 5;                     // Switching to a const enforces that this variable will be constant and not change
+    const int MAX_AGE = 90;
     const std::string NAME = "AchroDev"; // A const isn't necessarily a "variable", just think of it as a value that will not change
-    a = 2;                               // you'll notice now that this data is immutable
+
+    int *a = new int; // Declaring a new integer variable on the heap
+
+    *a = 2;              // Since it isn't a const, a can be dereferenced and the value reassigned.
+    a = (int *)&MAX_AGE; // The actual pointer can also be reassigned to something like a reference to MAX_AGE, but you will have to cast the value to a normal int *
+                         // this IS NOT recommended as you are breaking the const promise.
+    std::cout << *a << std::endl;
 
     std::cin.get();
 }
