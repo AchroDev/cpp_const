@@ -26,9 +26,9 @@ public:
 };
 
 // We want to make the parameters a consts, copying objects can be really slow
-void PrintEntity(const Entity &e)
+void PrintEntity(const Entity *e)
 {
-    e = nullptr;
+    e = nullptr; // This is ok now with the data as a pointer
     std::cout << e.GetX() << std::endl;
 }
 
